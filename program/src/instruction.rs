@@ -23,5 +23,5 @@ pub enum MarketplaceInstruction {
 
 #[derive(Clone, Debug, BorshSerialize, BorshDeserialize, PartialEq)]
 pub struct CreateProjectInstruction {
-    pub name: String
+    pub supply: u32
 }

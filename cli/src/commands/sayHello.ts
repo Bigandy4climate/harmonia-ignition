@@ -12,7 +12,7 @@ export async function sayHello(connection: Connection, initiator: Keypair) {
     log.info("Let's say hello...");
 
     // Check program exist
-    const accountPubkey = await checkProgram(connection, initiator, programId);
+    const accountPubkey = await checkProgram(connection, initiator, programId, "seed2ouf");
 
     // SSend Hello instruction
     const instruction = new TransactionInstruction({

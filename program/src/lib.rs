@@ -14,9 +14,7 @@ fn process_instruction(
     instruction_data: &[u8],
 ) -> ProgramResult {
 
-    msg!("====> Inside the contract <====");
+    msg!("Entering marketplace smartcontract");
 
     crate::processor::process_instruction(program_id, accounts, instruction_data)
-
-    // Ok(())
 }
