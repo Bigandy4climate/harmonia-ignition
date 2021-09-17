@@ -7,6 +7,8 @@ pub enum MarketplaceError {
     /// Invalid instruction
     #[error("Invalid Instruction")]
     InvalidInstruction,
+    #[error("Account not initialized")]
+    AccountNotInitialized,
 }
 
 impl From<MarketplaceError> for ProgramError {

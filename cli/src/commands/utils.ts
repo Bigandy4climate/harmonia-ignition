@@ -90,7 +90,7 @@ export async function establishConnection(env: string): Promise<Connection> {
 
 
 // Check if  'programId' is deployed
-export async function checkProgram(connection: Connection, initiator: Keypair, programId: PublicKey, seed = "helihelo"): Promise<PublicKey> {
+export async function checkProgram(connection: Connection, initiator: Keypair, programId: PublicKey, seed: string): Promise<PublicKey> {
 
     // Check if the program has been deployed
     const programInfo = await connection.getAccountInfo(programId);

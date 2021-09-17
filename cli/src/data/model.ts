@@ -13,31 +13,32 @@ export enum MarketplaceInstruction {
 // Hook to serialize borsh to rust enum
 // https://github.com/near/borsh-js/issues/21
 export class CreateProject {
-    name: string;
-    constructor(fields: { name: string } | undefined = undefined) {
+    supply: number;
+    constructor(fields: { supply: number } | undefined = undefined) {
         if (fields) {
-            this.name = fields.name;
+            this.supply = fields.supply;
         }
     }
 }
 
-export const CreateProjectSchema = new Map([[CreateProject, { kind: 'struct', fields: [['name', 'string']] }]]);
-export const CreateProjectSize = borsh.serialize(CreateProjectSchema, new CreateProject({ name: "projectname" })).length;
+export const CreateProjectSchema = new Map([[CreateProject, { kind: 'struct', fields: [['supply', 'u32']] }]]);
+export const CreateProjectSize = borsh.serialize(CreateProjectSchema, new CreateProject({ supply: 0 })).length;
 
 export class ProjectData {
+    initialized: boolean;
     state: number;
-    name: string
+    supply: number;
     constructor(fields: {
         state: number,
-        name: string
+        supply: number
     } | undefined = undefined) {
         if (fields) {
             this.state = fields.state;
-            this.name = fields.name;
+            this.supply = fields.supply;
         }
     }
 }
 export const ProjectDataSchema = new Map([
-    [ProjectData, { kind: 'struct', fields: [['state', 'u8'], ['name', 'string']] }],
+    [ProjectData, { kind: 'struct', fields: [['state', 'u8'], ['supply', 'u32']] }],
 ]);
-export const ProjectDataSize = borsh.serialize(ProjectDataSchema, new ProjectData({ state: 0, name: "maxprojectname" }),).length;
+export const ProjectDataSize = borsh.serialize(ProjectDataSchema, new ProjectData({ state: 0, supply: 0 }),).length;
