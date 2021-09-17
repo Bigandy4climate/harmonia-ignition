@@ -1,0 +1,19 @@
+{
+  "name": "cli",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "hello": "ts-node src/testmarketplace hello"
+  },
+  "dependencies": {
+    "@solana/spl-token": "^0.1.8",
+    "commander": "^8.1.0",
+    "loglevel": "^1.7.1",
+    "borsh": "^0.6.0",
+    "mz": "^2.7.0",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
